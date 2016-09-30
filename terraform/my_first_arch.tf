@@ -15,6 +15,7 @@ resource "docker_network" "network" {
     driver = "bridge"
     ipam_config {
         subnet = "172.17.0.1/16"
+        ip_range = "172.17.0.2 - 172.17.0.10"
         gateway = "172.17.0.1"
     }
 }
