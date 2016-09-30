@@ -10,6 +10,11 @@ resource "docker_image" "tuto-lb" {
    name = "tuto-lb"
 }
 
+resource "docker_network" "network" {
+    name   = "network"
+    driver = "bridge"
+}
+
 resource "docker_container" "app1" {
    image = "${docker_image.tuto-node.latest}"
    name  = "app1"

@@ -6,6 +6,9 @@ RUN apt-get update && \
     unzip consul_0.7.0_linux_amd64.zip -d consul && \
     cp consul/consul /usr/local/bin
 
+RUN mkdir -p /tmp/consul
 
 COPY nginx.conf /etc/nginx/nginx.conf
+
+CMD ["consul", "agent", "-server", "-data-dir", "/tmp/consul"] 
 
